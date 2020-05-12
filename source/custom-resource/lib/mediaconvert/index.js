@@ -151,6 +151,11 @@ const mediaPackageTemplates = [
     {
         name: '_Ott_720p_Avc_Aac_16x9_mvod',
         file: './lib/mediaconvert/templates/720p_avc_aac_16x9_mvod.json'
+    },
+
+    {
+        name: '_Ott_Hls_Ts_Aac_192kbit',
+        file: './lib/mediaconvert/templates/2160p_avc_aac_16x9_mvod.json'
     }
 ];
 
@@ -206,16 +211,14 @@ const Create = async (config) => {
         region: process.env.AWS_REGION
     });
 
-    let presets = [];
+    let presets = qvbrPresets;
     let templates = [];
 
     if (config.EnableMediaPackage === 'true') {
-        // Use qvbr presets but Media Package templates
-        presets = qvbrPresets;
+        // Use Media Package templates
         templates = mediaPackageTemplates;
     } else {
-        // Use qvbr presets and templates
-        presets = qvbrPresets;
+        // Use templates
         templates = qvbrTemplates;
     }
 
