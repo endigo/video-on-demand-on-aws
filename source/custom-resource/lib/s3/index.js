@@ -29,10 +29,12 @@ let PutNotification = async (config) => {
                             LambdaFunctionArn: config.IngestArn,
                             Filter: {
                                 Key: {
-                                    FilterRules: [{
-                                        Name: 'suffix',
-                                        Value: '.mpg'
-                                    }]
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: '.mpg'
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -41,10 +43,12 @@ let PutNotification = async (config) => {
                             LambdaFunctionArn: config.IngestArn,
                             Filter: {
                                 Key: {
-                                    FilterRules: [{
-                                        Name: 'suffix',
-                                        Value: '.mp4'
-                                    }]
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: '.mp4'
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -53,10 +57,12 @@ let PutNotification = async (config) => {
                             LambdaFunctionArn: config.IngestArn,
                             Filter: {
                                 Key: {
-                                    FilterRules: [{
-                                        Name: 'suffix',
-                                        Value: '.m4v'
-                                    }]
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: '.m4v'
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -65,10 +71,12 @@ let PutNotification = async (config) => {
                             LambdaFunctionArn: config.IngestArn,
                             Filter: {
                                 Key: {
-                                    FilterRules: [{
-                                        Name: 'suffix',
-                                        Value: '.mov'
-                                    }]
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: '.mov'
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -77,10 +85,40 @@ let PutNotification = async (config) => {
                             LambdaFunctionArn: config.IngestArn,
                             Filter: {
                                 Key: {
-                                    FilterRules: [{
-                                        Name: 'suffix',
-                                        Value: '.m2ts'
-                                    }]
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: '.m2ts'
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            Events: ['s3:ObjectCreated:*'],
+                            LambdaFunctionArn: config.IngestArn,
+                            Filter: {
+                                Key: {
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: '.mp3'
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            Events: ['s3:ObjectCreated:*'],
+                            LambdaFunctionArn: config.IngestArn,
+                            Filter: {
+                                Key: {
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: '.wav'
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -96,18 +134,22 @@ let PutNotification = async (config) => {
             params = {
                 Bucket: config.Source,
                 NotificationConfiguration: {
-                    LambdaFunctionConfigurations: [{
-                        Events: ['s3:ObjectCreated:*'],
-                        LambdaFunctionArn: config.IngestArn,
-                        Filter: {
-                            Key: {
-                                FilterRules: [{
-                                    Name: 'suffix',
-                                    Value: 'json'
-                                }]
+                    LambdaFunctionConfigurations: [
+                        {
+                            Events: ['s3:ObjectCreated:*'],
+                            LambdaFunctionArn: config.IngestArn,
+                            Filter: {
+                                Key: {
+                                    FilterRules: [
+                                        {
+                                            Name: 'suffix',
+                                            Value: 'json'
+                                        }
+                                    ]
+                                }
                             }
                         }
-                    }]
+                    ]
                 }
             };
 
@@ -116,7 +158,9 @@ let PutNotification = async (config) => {
             break;
 
         default:
-            throw new Error(`Unknown WorkflowTrigger: ${config.WorkflowTrigger}`);
+            throw new Error(
+                `Unknown WorkflowTrigger: ${config.WorkflowTrigger}`
+            );
     }
 
     return 'success';
