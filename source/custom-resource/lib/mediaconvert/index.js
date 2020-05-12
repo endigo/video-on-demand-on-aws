@@ -20,79 +20,102 @@ const DESCRIPTION = 'video on demand on aws';
 const qvbrPresets = [
     {
         name: '_Mp4_Avc_Aac_16x9_1280x720p_24Hz_4.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Mp4_Avc_Aac_16x9_1280x720p_24Hz_4.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Mp4_Avc_Aac_16x9_1280x720p_24Hz_4.5Mbps_qvbr.json'
     },
     {
         name: '_Mp4_Avc_Aac_16x9_1920x1080p_24Hz_6Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Mp4_Avc_Aac_16x9_1920x1080p_24Hz_6Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Mp4_Avc_Aac_16x9_1920x1080p_24Hz_6Mbps_qvbr.json'
     },
     {
         name: '_Mp4_Hevc_Aac_16x9_3840x2160p_24Hz_20Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Mp4_Hevc_Aac_16x9_3840x2160p_24Hz_20Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Mp4_Hevc_Aac_16x9_3840x2160p_24Hz_20Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_6.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_6.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_6.5Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_480x270p_15Hz_0.4Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_480x270p_15Hz_0.4Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_480x270p_15Hz_0.4Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_1920x1080p_30Hz_8.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1920x1080p_30Hz_8.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1920x1080p_30Hz_8.5Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_640x360p_30Hz_0.6Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_640x360p_30Hz_0.6Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_640x360p_30Hz_0.6Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_3.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_3.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_3.5Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_640x360p_30Hz_1.2Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_640x360p_30Hz_1.2Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_640x360p_30Hz_1.2Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_5.0Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_5.0Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_1280x720p_30Hz_5.0Mbps_qvbr.json'
     },
     {
         name: '_Ott_Dash_Mp4_Avc_16x9_960x540p_30Hz_3.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_960x540p_30Hz_3.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Dash_Mp4_Avc_16x9_960x540p_30Hz_3.5Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_3.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_3.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_3.5Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_480x270p_15Hz_0.4Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_480x270p_15Hz_0.4Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_480x270p_15Hz_0.4Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_5.0Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_5.0Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_5.0Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_640x360p_30Hz_0.6Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_640x360p_30Hz_0.6Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_640x360p_30Hz_0.6Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_6.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_6.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1280x720p_30Hz_6.5Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_640x360p_30Hz_1.2Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_640x360p_30Hz_1.2Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_640x360p_30Hz_1.2Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_1920x1080p_30Hz_8.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1920x1080p_30Hz_8.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_1920x1080p_30Hz_8.5Mbps_qvbr.json'
     },
     {
         name: '_Ott_Hls_Ts_Avc_Aac_16x9_960x540p_30Hz_3.5Mbps_qvbr',
-        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_960x540p_30Hz_3.5Mbps_qvbr.json'
+        file:
+            './lib/mediaconvert/presets/_Ott_Hls_Ts_Avc_Aac_16x9_960x540p_30Hz_3.5Mbps_qvbr.json'
+    },
+    {
+        name: '_Ott_Hls_Ts_Aac_192kbit',
+        file: './lib/mediaconvert/presets/_Ott_Hls_Ts_Aac_192kbit.json'
     }
 ];
 
@@ -108,6 +131,11 @@ const qvbrTemplates = [
     {
         name: '_Ott_720p_Avc_Aac_16x9_qvbr',
         file: './lib/mediaconvert/templates/720p_avc_aac_16x9_qvbr.json'
+    },
+
+    {
+        name: '_Ott_Hls_Ts_Aac_192kbit',
+        file: './lib/mediaconvert/templates/2160p_avc_aac_16x9_mvod.json'
     }
 ];
 
@@ -159,8 +187,8 @@ const _createTemplates = async (instance, templates, stackName) => {
         params.Name = stackName + params.Name;
 
         // Update preset names unless system presets
-        params.Settings.OutputGroups.forEach(group => {
-            group.Outputs.forEach(output => {
+        params.Settings.OutputGroups.forEach((group) => {
+            group.Outputs.forEach((output) => {
                 if (!output.Preset.startsWith('System')) {
                     output.Preset = stackName + output.Preset;
                 }
@@ -206,22 +234,47 @@ const Update = async (config) => {
     let enableMediaPackage = 'false';
 
     // Check if the curent templates are MediaPackage or not.
-    let data = await mediaconvert.listJobTemplates({ Category: CATEGORY }).promise();
-    data.JobTemplates.forEach(template => {
-        if (template.Name === config.StackName + '_Ott_720p_Avc_Aac_16x9_mvod') {
+    let data = await mediaconvert
+        .listJobTemplates({ Category: CATEGORY })
+        .promise();
+    data.JobTemplates.forEach((template) => {
+        if (
+            template.Name ===
+            config.StackName + '_Ott_720p_Avc_Aac_16x9_mvod'
+        ) {
             enableMediaPackage = 'true';
         }
     });
 
     if (config.EnableMediaPackage != enableMediaPackage) {
         if (config.EnableMediaPackage == 'true') {
-            console.log('Deleting qvbr templates and creating MediaPackage templates');
-            await _deleteTemplates(mediaconvert, qvbrTemplates, config.StackName);
-            await _createTemplates(mediaconvert, mediaPackageTemplates, config.StackName);
+            console.log(
+                'Deleting qvbr templates and creating MediaPackage templates'
+            );
+            await _deleteTemplates(
+                mediaconvert,
+                qvbrTemplates,
+                config.StackName
+            );
+            await _createTemplates(
+                mediaconvert,
+                mediaPackageTemplates,
+                config.StackName
+            );
         } else {
-            console.log('Deleting MediaPackage templates and creating qvbr templates');
-            await _deleteTemplates(mediaconvert, mediaPackageTemplates, config.StackName);
-            await _createTemplates(mediaconvert, qvbrTemplates, config.StackName);
+            console.log(
+                'Deleting MediaPackage templates and creating qvbr templates'
+            );
+            await _deleteTemplates(
+                mediaconvert,
+                mediaPackageTemplates,
+                config.StackName
+            );
+            await _createTemplates(
+                mediaconvert,
+                qvbrTemplates,
+                config.StackName
+            );
         }
     } else {
         console.log('No changes to the MediaConvert templates');
