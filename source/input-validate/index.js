@@ -34,45 +34,58 @@ exports.handler = async (event) => {
             destBucket: process.env.Destination,
             cloudFront: process.env.CloudFront,
             frameCapture: JSON.parse(process.env.FrameCapture),
-            archiveSource:  process.env.ArchiveSource,
+            archiveSource: process.env.ArchiveSource,
             jobTemplate_2160p: process.env.MediaConvert_Template_2160p,
             jobTemplate_1080p: process.env.MediaConvert_Template_1080p,
             jobTemplate_720p: process.env.MediaConvert_Template_720p,
+            jobTemplate_Audio: process.env.MediaConvert_Template_Audio,
             inputRotate: process.env.InputRotate,
             acceleratedTranscoding: process.env.AcceleratedTranscoding,
-            enableSns:JSON.parse(process.env.EnableSns),
-            enableSqs:JSON.parse(process.env.EnableSqs)
+            enableSns: JSON.parse(process.env.EnableSns),
+            enableSqs: JSON.parse(process.env.EnableSqs)
         };
 
         switch (event.workflowTrigger) {
             case 'Metadata':
                 console.log('Validating Metadata file::');
 
-                const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));
+                const key = decodeURIComponent(
+                    event.Records[0].s3.object.key.replace(/\+/g, ' ')
+                );
                 data.srcMetadataFile = key;
 
                 // Download json metadata file from s3
-                const metadata = await s3.getObject({ Bucket: data.srcBucket, Key: key }).promise();
+                const metadata = await s3
+                    .getObject({ Bucket: data.srcBucket, Key: key })
+                    .promise();
 
                 const metadataFile = JSON.parse(metadata.Body);
                 if (!metadataFile.srcVideo) {
-                    throw new Error('srcVideo is not defined in metadata::', metadataFile);
+                    throw new Error(
+                        'srcVideo is not defined in metadata::',
+                        metadataFile
+                    );
                 }
 
                 // https://github.com/awslabs/video-on-demand-on-aws/pull/23
                 // Normalize key in order to support different casing
                 Object.keys(metadataFile).forEach((key) => {
-                    const normalizedKey = key.charAt(0).toLowerCase() + key.substr(1);
+                    const normalizedKey =
+                        key.charAt(0).toLowerCase() + key.substr(1);
                     data[normalizedKey] = metadataFile[key];
                 });
 
                 // Check source file is accessible in s3
-                await s3.headObject({ Bucket: data.srcBucket, Key: data.srcVideo }).promise();
+                await s3
+                    .headObject({ Bucket: data.srcBucket, Key: data.srcVideo })
+                    .promise();
 
                 break;
 
             case 'Video':
-                data.srcVideo = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));
+                data.srcVideo = decodeURIComponent(
+                    event.Records[0].s3.object.key.replace(/\+/g, ' ')
+                );
                 break;
 
             default:
