@@ -150,6 +150,10 @@ const mediaPackageTemplates = [
     {
         name: '_Ott_720p_Avc_Aac_16x9_mvod',
         file: './lib/mediaconvert/templates/720p_avc_aac_16x9_mvod.json'
+    },
+    {
+        name: '_Ott_Hls_Ts_Aac_192kbit_mvod',
+        file: './lib/mediaconvert/templates/192kbit_aac_audio_mvod.json'
     }
 ];
 
