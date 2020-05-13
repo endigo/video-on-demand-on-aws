@@ -1426,6 +1426,11 @@ Resources:
                   "Variable": "$.encodingProfile ",
                   "NumericEquals": 720,
                   "Next": "jobTemplate 720p"
+                },
+                {
+                  "Variable": "$.audioOnly ",
+                  "BooleanEquals": true,
+                  "Next": "jobTemplate Audio"
                 }
               ]
             },
@@ -1438,6 +1443,10 @@ Resources:
               "Next": "Accelerated Transcoding Check"
             },
             "jobTemplate 720p": {
+              "Type": "Pass",
+              "Next": "Accelerated Transcoding Check"
+            },
+            "jobTemplate Audio": {
               "Type": "Pass",
               "Next": "Accelerated Transcoding Check"
             },
