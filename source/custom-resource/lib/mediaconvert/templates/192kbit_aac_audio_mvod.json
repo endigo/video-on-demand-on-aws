@@ -62,6 +62,5 @@
     "Mode": "DISABLED"
   },
   "StatusUpdateInterval": "SECONDS_60",
-  "Priority": 0,
-  "HopDestinations": []
+  "Priority": 0
 }
