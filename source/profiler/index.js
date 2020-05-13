@@ -80,8 +80,6 @@ exports.handler = async (event) => {
                 };
 
                 event.jobTemplate = jobTemplates[encodeProfile];
-                console.log(`Chosen template:: ${event.jobTemplate}`);
-
                 event.isCustomTemplate = false;
             } else {
                 event.isCustomTemplate = true;
@@ -89,7 +87,10 @@ exports.handler = async (event) => {
         } else {
             event.audioOnly = true;
             event.jobTemplate = event.jobTemplate_Audio;
+            event.isCustomTemplate = false;
+            event.encodingProfile = 192;
         }
+        console.log(`Chosen template:: ${event.jobTemplate}`);
     } catch (err) {
         await error.handler(event, err);
         throw err;
