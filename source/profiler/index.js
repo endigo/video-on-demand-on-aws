@@ -85,6 +85,9 @@ exports.handler = async (event) => {
                 event.isCustomTemplate = true;
             }
         } else {
+            console.log(
+                "There is no video property on mediainfo! Let's use AUDIO ONLY template"
+            );
             event.audioOnly = true;
             event.jobTemplate = event.jobTemplate_Audio;
             event.isCustomTemplate = false;
