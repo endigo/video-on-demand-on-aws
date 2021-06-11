@@ -5,16 +5,16 @@ Source code for [Video on Demand on AWS](https://aws.amazon.com/solutions/video-
 
 ## On this Page
 
-- [Architecture Overview](#architecture-overview)
-- [Deployment](#deployment)
-- [Workflow Configuration](#workflow-configuration)
-- [Source Metadata Option](#source-metadata-option)
-- [Encoding Templates](#encoding-templates)
-- [QVBR Mode](#qvbr-mode)
-- [Accelerated Transcoding](#accelerated-transcoding)
-- [Source Code](#source-code)
-- [Creating a custom Build](#creating-a-custom-build)
-- [Additional Resources](#additional-resources)
+-   [Architecture Overview](#architecture-overview)
+-   [Deployment](#deployment)
+-   [Workflow Configuration](#workflow-configuration)
+-   [Source Metadata Option](#source-metadata-option)
+-   [Encoding Templates](#encoding-templates)
+-   [QVBR Mode](#qvbr-mode)
+-   [Accelerated Transcoding](#accelerated-transcoding)
+-   [Source Code](#source-code)
+-   [Creating a custom Build](#creating-a-custom-build)
+-   [Additional Resources](#additional-resources)
 
 ## Architecture Overview
 
@@ -32,19 +32,19 @@ The workflow configuration is set at deployment and is defined as environment va
 
 #### Environment Variables:
 
-- **Archive Source:** If enabled, the source video file will be tagged for archiving to glacier at the end of the workflow
-- **CloudFront:** CloudFront domain name, used to generate the playback URLs for the MediaConvert outputs
-- **Destination:** The name of the destination S3 bucket for all of the MediaConvert outputs
-- **FrameCapture:** If enabled frame capture is added to the job submitted to MediaConvert
-- **InputRotate:** Defines how the MediaConvert rotates your video
-- **MediaConvert_Template_2160p:** The name of the UHD template in MediaConvert
-- **MediaConvert_Template_1080p:** The name of the HD template in MediaConvert
-- **MediaConvert_Template_720p:** The name of the SD template in MediaConvert
-- **Source:** The name of the source S3 bucket
-- **WorkflowName:** Used to tag all of the MediaConvert encoding jobs
-- **acceleratedTranscoding** Enabled Accelerated Transcoding in MediaConvert. options include ENABLE, DISABLE, PREFERRED. for more detials please see:
-- **enableSns** Send SNS notifications for the workflow results.
-- **enableSqs** Send the workflow results to an SQS queue
+-   **Archive Source:** If enabled, the source video file will be tagged for archiving to glacier at the end of the workflow
+-   **CloudFront:** CloudFront domain name, used to generate the playback URLs for the MediaConvert outputs
+-   **Destination:** The name of the destination S3 bucket for all of the MediaConvert outputs
+-   **FrameCapture:** If enabled frame capture is added to the job submitted to MediaConvert
+-   **InputRotate:** Defines how the MediaConvert rotates your video
+-   **MediaConvert_Template_2160p:** The name of the UHD template in MediaConvert
+-   **MediaConvert_Template_1080p:** The name of the HD template in MediaConvert
+-   **MediaConvert_Template_720p:** The name of the SD template in MediaConvert
+-   **Source:** The name of the source S3 bucket
+-   **WorkflowName:** Used to tag all of the MediaConvert encoding jobs
+-   **acceleratedTranscoding** Enabled Accelerated Transcoding in MediaConvert. options include ENABLE, DISABLE, PREFERRED. for more detials please see:
+-   **enableSns** Send SNS notifications for the workflow results.
+-   **enableSqs** Send the workflow results to an SQS queue
 
 ### WorkFlow Triggers
 
@@ -100,9 +100,9 @@ The solution also supports adding additional metadata, such as title, genre, or 
 
 At launch the Solution creates 3 MediaConvert job templates which are used as the default encoding templates for the workflow:
 
-- **MediaConvert_Template_2160p**
-- **MediaConvert_Template_1080p**
-- **MediaConvert_Template_720p**
+-   **MediaConvert_Template_2160p**
+-   **MediaConvert_Template_1080p**
+-   **MediaConvert_Template_720p**
 
 By default, the profiler step in the process step function will check the source video height and set the parameter "jobTemplate" to one of the available templates. This variable is then passed to the encoding step which submits a job to Elemental MediaConvert. To customize the encoding templates used by the solution you can either replace the existing templates or you can use the source metadata version of the workflow and define the jobTemplate as part of the source metadata file.
 
@@ -121,18 +121,31 @@ By default, the profiler step in the process step function will check the source
 
 AWS MediaConvert Quality-defined Variable Bit-Rate (QVBR) control mode gets the best video quality for a given file size and is recommended for OTT and Video On Demand Content. The solution supports this feature and it will create HLS, MP4 and DASH custom presets with the following QVBR levels and Single Pass HQ encoding:
 
+<<<<<<< HEAD
 | Resolution | MaxBitrate | QvbrQualityLevel |
 | ---------- | :--------: | ---------------: |
-| 2160p      | 20000kbps  |                8 |
-| 1080p      |  8500Kbps  |                8 |
-| 720p       |  6500Kbps  |                8 |
-| 720p       |  5000Kbps  |                8 |
-| 720p       |  3500Kbps  |                7 |
-| 540p       |  6500Kbps  |                7 |
-| 540p       |  3500Kbps  |                7 |
-| 360p       |  1200Kbps  |                7 |
-| 360p       |  600Kbps   |                7 |
-| 270p       |  400Kbps   |                7 |
+| 2160p | 20000kbps | 8 |
+| 1080p | 8500Kbps | 8 |
+| 720p | 6500Kbps | 8 |
+| 720p | 5000Kbps | 8 |
+| 720p | 3500Kbps | 7 |
+| 540p | 6500Kbps | 7 |
+| 540p | 3500Kbps | 7 |
+| 360p | 1200Kbps | 7 |
+| 360p | 600Kbps | 7 |
+| 270p | 400Kbps | 7 |
+=======
+| Resolution | MaxBitrate | QvbrQualityLevel |
+|----------|:-------------:|------:|
+| 2160p | 15000Kbps | 9 |
+| 1080p | 8500Kbps | 8 |
+| 720p | 6000Kbps | 8 |
+| 720p | 5000Kbps | 8 |
+| 540p | 3500Kbps | 7 |
+| 360p | 1500Kbps | 7 |
+| 270p | 400Kbps | 7 |
+
+> > > > > > > 4b42a547c9acbdf959e3495d3389b610c5d8acd7
 
 For more detail please see [QVBR and MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/cbr-vbr-qvbr.html).
 
@@ -140,9 +153,9 @@ For more detail please see [QVBR and MediaConvert](https://docs.aws.amazon.com/m
 
 Version 5.1.0 introduces support for accelerated transcoding which is a pro tier feature of AWS Elemental MediaConvert. This feature can be configured when launching the template with one of the following options:
 
-- **ENABLED** All files upload will have acceleration enabled. Files that are not supported will not be processed and the workflow will fail
-- **PREFERRED** All files uploaded will be processed but only supported files will have acceleration enabled, the workflow will not fail.
-- **DISABLED** No acceleration.
+-   **ENABLED** All files upload will have acceleration enabled. Files that are not supported will not be processed and the workflow will fail
+-   **PREFERRED** All files uploaded will be processed but only supported files will have acceleration enabled, the workflow will not fail.
+-   **DISABLED** No acceleration.
 
 For more detail please see [Accelerated Transcoding](https://docs.aws.amazon.com/mediaconvert/latest/ug/accelerated-transcoding.html).
 
@@ -150,20 +163,20 @@ For more detail please see [Accelerated Transcoding](https://docs.aws.amazon.com
 
 ### Node.js 12
 
-- **archive-source:** Lambda function to tag the source video in s3 to enable the Glacier lifecycle policy.
-- **custom-resource:** Lambda backed CloudFormation custom resource to deploy MediaConvert templates configure S3 event notifications.
-- **dynamo:** Lambda function to Update DynamoDB.
-- **encode:** Lambda function to submit an encoding job to Elemental MediaConvert.
-- **error-handler:** Lambda function to handler any errors created by the workflow or MediaConvert.
-- **input-validate:** Lambda function to parse S3 event notifications and define the workflow parameters.
-- **media-package-assets:** Lambda function to ingest an asset into MediaPackage-VOD.
-- **output-validate:** Lambda function to parse MediaConvert CloudWatch Events.
-- **profiler:** Lambda function used to send publish and/or error notifications.
-- **step-functions:** Lambda function to trigger AWS Step Functions.
+-   **archive-source:** Lambda function to tag the source video in s3 to enable the Glacier lifecycle policy.
+-   **custom-resource:** Lambda backed CloudFormation custom resource to deploy MediaConvert templates configure S3 event notifications.
+-   **dynamo:** Lambda function to Update DynamoDB.
+-   **encode:** Lambda function to submit an encoding job to Elemental MediaConvert.
+-   **error-handler:** Lambda function to handler any errors created by the workflow or MediaConvert.
+-   **input-validate:** Lambda function to parse S3 event notifications and define the workflow parameters.
+-   **media-package-assets:** Lambda function to ingest an asset into MediaPackage-VOD.
+-   **output-validate:** Lambda function to parse MediaConvert CloudWatch Events.
+-   **profiler:** Lambda function used to send publish and/or error notifications.
+-   **step-functions:** Lambda function to trigger AWS Step Functions.
 
 ### Python 3.7
 
-- **mediainfo:** Lambda function to run [mediainfo](https://mediaarea.net/en/MediaInfo) on an S3 signed url.
+-   **mediainfo:** Lambda function to run [mediainfo](https://mediaarea.net/en/MediaInfo) on an S3 signed url.
 
 > ./source/mediainfo/bin/mediainfo must be made executable before deploying to lambda.
 
@@ -174,9 +187,9 @@ To make changes to the solution, download or clone this repo, update the source 
 
 ### Prerequisites:
 
-- [AWS Command Line Interface](https://aws.amazon.com/cli/)
-- Node.js 12.x or later
-- Python 3.8 or later
+-   [AWS Command Line Interface](https://aws.amazon.com/cli/)
+-   Node.js 12.x or later
+-   Python 3.8 or later
 
 ### 1. Running unit tests for customization
 
@@ -196,7 +209,33 @@ The CloudFormation template is configured to pull the Lambda deployment packages
 aws s3 mb s3://my-bucket-us-east-1
 ```
 
-### 3. Create the deployment packages
+### 3. Build MediaInfo
+
+Build MediaInfo using the following commands on an [EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) running an Amazon Linux AMI.
+
+```console
+sudo yum update -y
+sudo yum groupinstall 'Development Tools' -y
+sudo yum install libcurl-devel -y
+wget https://mediaarea.net/download/binary/mediainfo/20.09/MediaInfo_CLI_20.09_GNU_FromSource.tar.xz
+tar xvf MediaInfo_CLI_20.09_GNU_FromSource.tar.xz
+cd MediaInfo_CLI_GNU_FromSource/
+./CLI_Compile.sh --with-libcurl
+```
+
+Run these commands to confirm the compilation was successful:
+
+```console
+cd MediaInfo/Project/GNU/CLI/
+./mediainfo --version
+```
+
+Copy the mediainfo binary into the `source/mediainfo/bin` directory of your cloned respository.
+
+If you'd like to use a precompiled MediaInfo binary for Lambda built by the MediaArea team, you can download it [here](https://mediaarea.net/en/MediaInfo/Download/Lambda).
+For more information, check out the [MediaInfo site](https://mediaarea.net/en/MediaInfo).
+
+### 4. Create the deployment packages
 
 Build the distributable:
 
@@ -213,30 +252,38 @@ Deploy the distributable to the Amazon S3 bucket in your account:
 aws s3 cp ./regional-s3-assets/ s3://my-bucket-us-east-1/video-on-demand-on-aws/version/ --recursive --acl bucket-owner-full-control
 ```
 
+<<<<<<< HEAD
+
 ### 4. Launch the CloudFormation template.
 
-- Get the link of the video-on-demand-on-aws.template uploaded to your Amazon S3 bucket.
-- Deploy the Video on Demand to your account by launching a new AWS CloudFormation stack using the link of the video-on-demand-on-aws.template.
+-   Get the link of the video-on-demand-on-aws.template uploaded to your Amazon S3 bucket.
+-   # Deploy the Video on Demand to your account by launching a new AWS CloudFormation stack using the link of the video-on-demand-on-aws.template.
+
+### 5. Launch the CloudFormation template.
+
+-   Get the link of the video-on-demand-on-aws.template uploaded to your Amazon S3 bucket.
+-   Deploy the Video on Demand to your account by launching a new AWS CloudFormation stack using the link of the video-on-demand-on-aws.template.
+    > > > > > > > 4b42a547c9acbdf959e3495d3389b610c5d8acd7
 
 ## Additional Resources
 
 ### Services
 
-- [AWS Elemental MediaConvert](https://aws.amazon.com/mediaconvert/)
-- [AWS Elemental MediaPackage](https://aws.amazon.com/mediapackage/)
-- [AWS Step Functions](https://aws.amazon.com/step-functions/)
-- [AWS Lambda](https://aws.amazon.com/lambda/)
-- [Amazon CloudFront](https://aws.amazon.com/cloudfront/)
-- [OTT Workflows](https://www.elemental.com/applications/ott-workflows)
-- [QVBR and MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/cbr-vbr-qvbr.html)
+-   [AWS Elemental MediaConvert](https://aws.amazon.com/mediaconvert/)
+-   [AWS Elemental MediaPackage](https://aws.amazon.com/mediapackage/)
+-   [AWS Step Functions](https://aws.amazon.com/step-functions/)
+-   [AWS Lambda](https://aws.amazon.com/lambda/)
+-   [Amazon CloudFront](https://aws.amazon.com/cloudfront/)
+-   [OTT Workflows](https://www.elemental.com/applications/ott-workflows)
+-   [QVBR and MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/cbr-vbr-qvbr.html)
 
 ### Other Solutions and Demos
 
-- [Live Streaming On AWS](https://aws.amazon.com/solutions/live-streaming-on-aws/)
-- [Media Analysis Solution](https://aws.amazon.com/solutions/media-analysis-solution/)
-- [Live Streaming and Live to VOD Workshop](https://github.com/awslabs/speke-reference-server)
-- [Live to VOD with Machine Learning](https://github.com/aws-samples/aws-elemental-instant-video-highlights)
-- [Demo SPEKE Reference Server](https://github.com/awslabs/speke-reference-server)
+-   [Live Streaming On AWS](https://aws.amazon.com/solutions/live-streaming-on-aws/)
+-   [Media Analysis Solution](https://aws.amazon.com/solutions/media-analysis-solution/)
+-   [Live Streaming and Live to VOD Workshop](https://github.com/awslabs/speke-reference-server)
+-   [Live to VOD with Machine Learning](https://github.com/aws-samples/aws-elemental-instant-video-highlights)
+-   [Demo SPEKE Reference Server](https://github.com/awslabs/speke-reference-server)
 
 ---
 
