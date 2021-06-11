@@ -7,7 +7,7 @@
         "Codec": "AAC",
         "AacSettings": {
           "AudioDescriptionBroadcasterMix": "NORMAL",
-          "Bitrate": 192000,
+          "Bitrate": 128000,
           "RateControlMode": "CBR",
           "CodecProfile": "LC",
           "CodingMode": "CODING_MODE_2_0",

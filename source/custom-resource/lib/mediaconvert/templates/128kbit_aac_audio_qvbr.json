@@ -1,14 +1,14 @@
 {
   "Category": "Audio",
-  "Name": "_Ott_Hls_Ts_Aac_192kbit_qvbr",
+  "Name": "_Ott_Hls_Ts_Aac_128kbit_qvbr",
   "Settings": {
     "OutputGroups": [
       {
         "Name": "Apple HLS",
         "Outputs": [
           {
-            "Preset": "_Ott_Hls_Ts_Aac_192kbit",
-            "NameModifier": "_ott_hls_ts_aac_192"
+            "Preset": "_Ott_Hls_Ts_Aac_128kbit",
+            "NameModifier": "_ott_hls_ts_aac_128"
           }
         ],
         "OutputGroupSettings": {

@@ -741,8 +741,8 @@ Resources:
           MediaConvert_Template_Audio:
             !If
               - IsMediaPackageEnabled
-              - !Sub "${AWS::StackName}_Ott_Hls_Ts_Aac_192kbit_mvod"
-              - !Sub "${AWS::StackName}_Ott_Hls_Ts_Aac_192kbit_qvbr"
+              - !Sub "${AWS::StackName}_Ott_Hls_Ts_Aac_128kbit_mvod"
+              - !Sub "${AWS::StackName}_Ott_Hls_Ts_Aac_128kbit_qvbr"
           CloudFront: !GetAtt CloudFront.DomainName
           EnableMediaPackage: !Ref EnableMediaPackage
           InputRotate: DEGREE_0
